@@ -23,12 +23,6 @@ template = template_raw.substitute(all_dict)
 with open("/slamhive/" + all_dict["cam0_calib"],"w") as f:
     f.write(template)
 
-cam1_name = "/slamhive/template_" + all_dict["cam1_calib"]
-template_raw = Template(open(cam1_name,'r',encoding="UTF-8").read())
-template = template_raw.substitute(all_dict)
-with open("/slamhive/" + all_dict["cam1_calib"],"w") as f:
-    f.write(template)
-
 roslaunch_command = "roscore & rosrun vins vins_node /slamhive/mappingtask.yaml &\
     rosrun loop_fusion loop_fusion_node /slamhive/mappingtask.yaml "
 subprocess.run("bash -c 'source /opt/ros/kinetic/setup.bash; \

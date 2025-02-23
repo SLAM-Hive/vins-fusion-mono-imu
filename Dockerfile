@@ -33,7 +33,6 @@ WORKDIR $CATKIN_WS
 RUN   mkdir src
 COPY  VINS-Fusion $CATKIN_WS/src/VINS-Fusion
 
-
 # Build VINS-Fusion
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
