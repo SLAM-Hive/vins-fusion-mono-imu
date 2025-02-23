@@ -17,9 +17,16 @@ template = template_raw.substitute(all_dict)
 with open("/slamhive/mappingtask.yaml","w") as f:
     f.write(template)
 
-template_raw = Template(open("/slamhive/template_cam0_mei.yaml",'r',encoding="UTF-8").read())
+cam0_name = "/slamhive/template_" + all_dict["cam0_calib"]
+template_raw = Template(open(cam0_name,'r',encoding="UTF-8").read())
 template = template_raw.substitute(all_dict)
-with open("/slamhive/cam0_mei.yaml","w") as f:
+with open("/slamhive/" + all_dict["cam0_calib"],"w") as f:
+    f.write(template)
+
+cam1_name = "/slamhive/template_" + all_dict["cam1_calib"]
+template_raw = Template(open(cam1_name,'r',encoding="UTF-8").read())
+template = template_raw.substitute(all_dict)
+with open("/slamhive/" + all_dict["cam1_calib"],"w") as f:
     f.write(template)
 
 roslaunch_command = "roscore & rosrun vins vins_node /slamhive/mappingtask.yaml &\

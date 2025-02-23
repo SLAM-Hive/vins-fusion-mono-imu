@@ -33,6 +33,7 @@ WORKDIR $CATKIN_WS
 RUN   mkdir src
 COPY  VINS-Fusion $CATKIN_WS/src/VINS-Fusion
 
+
 # Build VINS-Fusion
 ENV TERM xterm
 ENV PYTHONIOENCODING UTF-8
@@ -48,4 +49,4 @@ RUN apt-get update && apt-get install -y \
 	python3-pip \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* 
-RUN pip3 install pyyaml
+RUN pip3 install pyyaml==6.0

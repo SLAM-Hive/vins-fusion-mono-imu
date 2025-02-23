@@ -3,15 +3,15 @@
 #common parameters
 #support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
 imu: 1         
-num_of_cam: 1  
+num_of_cam: 2  
 
 imu_topic: "$imu_topic"
 image0_topic: "$image0_topic"
-image1_topic: "/cam1/image_raw"
+image1_topic: "$image1_topic"
 output_path: "/home/output"
 
-cam0_calib: "cam0_mei.yaml"
-cam1_calib: "cam1_mei.yaml"
+cam0_calib: "$cam0_calib"
+cam1_calib: "$cam1_calib"
 image_width: $image_width
 image_height: $image_height
    
@@ -26,6 +26,11 @@ body_T_cam0: !!opencv-matrix
    dt: d
    data: $body_T_cam0
 
+body_T_cam1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: $body_T_cam1
 #Multiple thread support
 multiple_thread: 1
 
